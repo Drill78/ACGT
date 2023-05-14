@@ -62,19 +62,16 @@ toc: true
 
 ### - Top Menu 顶部导航栏相关
 
-- *(>2.0.3)* 可以尝试更优雅的新配置方案，配置格式为：
+- *(>2.0.3)* 可以尝试更优雅的新配置方案，每一项的配置含义解释为：
 
-``` ts
-topMenu: Array<{
-  label: String;
-  icon?: String; // Select from FontAwesome@4.7.0
-  url?: String;
-  submenu?: Array<{
-    label: String;
-    icon?: String; // Select from FontAwesome@4.7.0
-    url: String
-  }>
-}> 
+``` yaml
+- label: 这个菜单的标签文字
+  icon: 这个菜单前的图标（在 FontAwesome 4.7.0 图标库中选择，可以不设置）
+  url: 这个菜单指向的链接（站内或是站外均可）
+  submenu: 这个菜单是否为一个二级菜单，有了这个选项就会忽略上面的 url
+    - label: 二级菜单项的标签文字 
+      icon: 二级菜单前的图标（在 FontAwesome 4.7.0 图标库中选择，可以不设置）
+      url: 二级菜单项指向的链接
 ```
 
 具体可以参见 `.demo/_config.kratos-rebirth.yml` 中示例的配置哦。
@@ -147,6 +144,10 @@ label:
 - **comments** : 
   - **provider**: (*disqus/disqusjs/valine/twikoo/waline/gitalk/gitment/false*)会从`layout/_comments`文件夹中加载指定的评论系统，您也可以自定义其他的解决方案。如果不想开启评论的话，那就还是设置为false吧\~
   - **enableBGImage**: (*true/false*)控制是否在评论系统中显示背景图片
+
+- **wordCount** : 
+  - **enable**: (*true/false*)控制文章页面是否启用字数统计显示，默认为 `true`
+  - **threshold**: 控制文章页面字数统计功能进入估算模式的字符数分割点，默认为 `1500`
 
 ### - Disqus 评论相关
 
@@ -275,6 +276,10 @@ label:
   - **page** : 页面相关的参数，您可以配置任意多您需要的页面参数，提供的样例可供您参考
   - **list** : 友链列表，您可以参照提供的样例进行对应的复制修改，每一项可以提供显示的名字(name)、简介(bio)、头像链接(avatar)和目标站点链接(link)，无用项建议留空（而不是直接删除）
   - **verify** : 是否在每次启动时验证友联的可访问性
+
+### - Misc 杂项
+
+- **showWordCountEstimateWavy** : 在文章字数处显示表示大约字数的波浪号
 
 -----
 
